@@ -506,7 +506,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .section-header h2 {
   font-size: 32px;
-  color: #0c2e8a;
+  color: black;
   text-transform: uppercase;
   font-weight: 700;
   position: relative;
@@ -741,6 +741,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
   width: 100%;
+  height: 400px;
 }
 
 #portfolio .portfolio-item:hover img {
@@ -1015,6 +1016,16 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 15px;
 }
 
+#contact .form #msgsend {
+  color: #50d8af;
+  border: 1px solid #50d8af;
+  display: none;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
 #contact .form #errormessage {
   color: red;
   display: none;
@@ -1026,6 +1037,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form #sendmessage.show, #contact .form #errormessage.show, #contact .form .show {
+  display: block;
+}
+
+#contact .form #msgsend.show, #contact .form #errormessage.show, #contact .form .show {
   display: block;
 }
 
@@ -1080,4 +1095,15 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #footer .credits a {
   color: #0c2e8a;
+}
+
+
+#survey-btn {
+    background: #50d8af;
+    border: 0;
+    border-radius: 3px;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    cursor: pointer;
 }

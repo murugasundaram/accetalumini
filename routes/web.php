@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index')->with(['menu' => 'main']);
 });
 
 Route::get('/login', function () {
@@ -24,3 +24,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/accet/survey', 'surveyController@startSurvey')->name('home');
+Route::post('/accet/survey', 'surveyController@storeSurvey')->name('home');
+
+Route::post('/contactform/receive', 'surveyController@saveContact');
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('/accet/survey/result', 'surveyController@surveyResult');
+	Route::get('/accet/survey/feedback', 'surveyController@getFeedback');
+	
+});
+
+

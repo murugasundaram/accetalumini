@@ -1,13 +1,19 @@
 @extends('layouts.template')
 
 @section('content')
+<style type="text/css">
+  .comingsoon:hover {
+      cursor: default;
+  }
+</style>
   <section id="intro">
 
     <div class="intro-content">
       <h2>Making <span>your ideas</span><br>happen!</h2>
+      <h4>“Most ideas are born and lost in isolation.”</h4>
       <div>
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
-        <a href="#portfolio" class="btn-projects scrollto">Our Projects</a>
+        <a href="{{ asset('/accet/survey') }}" class="btn-get-started scrollto">Start Survey</a>
+        <a href="#contact" class="btn-projects scrollto">Reach Us</a>
       </div>
     </div>
 
@@ -26,7 +32,7 @@
     <!--==========================
       About Section
     ============================-->
-    <section id="about" class="wow fadeInUp">
+   <!--  <section id="about" class="wow fadeInUp">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 about-img">
@@ -47,7 +53,7 @@
         </div>
 
       </div>
-    </section><!-- #about -->
+    </section> --><!-- #about -->
 
     <!--==========================
       Services Section
@@ -56,28 +62,28 @@
       <div class="container">
         <div class="section-header">
           <h2>Services</h2>
-          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+          <p>We are one of the alumni of accet. we have planned to do the following service for ACCET which may help for ACCET students. More ideas are welcome, <a href="#contact"><b>join with us</b></a>. </p>
         </div>
 
         <div class="row">
 
-          <div class="col-lg-6">
+          <div class="col-lg-6 comingsoon" title="coming soon">
             <div class="box wow fadeInLeft">
               <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.</p>
+              <h4 class="title"><a href="Javascript:void(0)">Placement portal</a></h4>
+              <p class="description" style="min-height: 65px">We have planned to provide a feedback service for current student. so that they can use it when a company come for placement</p>
             </div>
           </div>
 
-          <div class="col-lg-6">
+          <div class="col-lg-6 comingsoon" title="coming soon">
             <div class="box wow fadeInRight">
               <div class="icon"><i class="fa fa-picture-o"></i></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata nodera clas.</p>
+              <h4 class="title"><a href="Javascript:void(0)">Gate portal</a></h4>
+              <p class="description" style="min-height: 65px">We have planned to provide a gate portal guide for students in future.</p>
             </div>
           </div>
 
-          <div class="col-lg-6">
+          <!-- <div class="col-lg-6">
             <div class="box wow fadeInLeft" data-wow-delay="0.2s">
               <div class="icon"><i class="fa fa-shopping-bag"></i></div>
               <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
@@ -91,7 +97,7 @@
               <h4 class="title"><a href="">Magni Dolores</a></h4>
               <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum rideta zanox satirente madera</p>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
@@ -101,7 +107,7 @@
     <!--==========================
       Clients Section
     ============================-->
-    <section id="clients" class="wow fadeInUp">
+   <!--  <section id="clients" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
           <h2>Clients</h2>
@@ -120,7 +126,23 @@
         </div>
 
       </div>
-    </section><!-- #clients -->
+    </section> --><!-- #clients -->
+
+
+     <section id="call-to-action" class="wow fadeInUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3 class="cta-title">Join With Us</h3>
+            <p class="cta-text"> We are expecting more ideas and innovative people who are interested in developing and designing. Join with our team to take it forward.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#contact">Join Us</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!--==========================
       Our Portfolio Section
@@ -128,8 +150,8 @@
     <section id="portfolio" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
-          <h2>Our Portfolio</h2>
-          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+          <h2>ACCET Portfolio</h2>
+          <p>Some artistic works of our students. </p>
         </div>
       </div>
 
@@ -138,10 +160,10 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/1.jpg" class="portfolio-popup">
-                <img src="img/portfolio/1.jpg" alt="">
+              <a href="{{ asset('img/portfolio/1.jpg') }}" class="portfolio-popup">
+                <img src="{{ asset('img/portfolio/1.jpg') }}" alt="">
                 <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 1</h2></div>
+                  <div class="portfolio-info"><h2 class="wow fadeInUp"></h2></div>
                 </div>
               </a>
             </div>
@@ -149,10 +171,10 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/2.jpg" class="portfolio-popup">
-                <img src="img/portfolio/2.jpg" alt="">
+              <a href="{{ asset('img/portfolio/2.jpg') }}" class="portfolio-popup">
+                <img src="{{ asset('img/portfolio/2.jpg') }}" alt="">
                 <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 2</h2></div>
+                  <div class="portfolio-info"><h2 class="wow fadeInUp"></h2></div>
                 </div>
               </a>
             </div>
@@ -160,10 +182,10 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/3.jpg" class="portfolio-popup">
-                <img src="img/portfolio/3.jpg" alt="">
+              <a href="{{ asset('img/portfolio/3.jpg') }}" class="portfolio-popup">
+                <img src="{{ asset('img/portfolio/3.jpg') }}" alt="">
                 <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 3</h2></div>
+                  <div class="portfolio-info"><h2 class="wow fadeInUp"></h2></div>
                 </div>
               </a>
             </div>
@@ -171,10 +193,10 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/4.jpg" class="portfolio-popup">
-                <img src="img/portfolio/4.jpg" alt="">
+              <a href="{{ asset('img/portfolio/4.jpg') }}" class="portfolio-popup">
+                <img src="{{ asset('img/portfolio/4.jpg') }}" alt="">
                 <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 4</h2></div>
+                  <div class="portfolio-info"><h2 class="wow fadeInUp"></h2></div>
                 </div>
               </a>
             </div>
@@ -182,10 +204,10 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/5.jpg" class="portfolio-popup">
-                <img src="img/portfolio/5.jpg" alt="">
+              <a href="{{ asset('img/portfolio/5.jpg') }}" class="portfolio-popup">
+                <img src="{{ asset('img/portfolio/5.jpg') }}" alt="">
                 <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 5</h2></div>
+                  <div class="portfolio-info"><h2 class="wow fadeInUp"></h2></div>
                 </div>
               </a>
             </div>
@@ -193,10 +215,10 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/6.jpg" class="portfolio-popup">
-                <img src="img/portfolio/6.jpg" alt="">
+              <a href="{{ asset('img/portfolio/6.jpg') }}" class="portfolio-popup">
+                <img src="{{ asset('img/portfolio/6.jpg') }}" alt="">
                 <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 6</h2></div>
+                  <div class="portfolio-info"><h2 class="wow fadeInUp"></h2></div>
                 </div>
               </a>
             </div>
@@ -204,10 +226,10 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/7.jpg" class="portfolio-popup">
-                <img src="img/portfolio/7.jpg" alt="">
+              <a href="{{ asset('img/portfolio/7.jpg') }}" class="portfolio-popup">
+                <img src="{{ asset('img/portfolio/7.jpg') }}" alt="">
                 <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 7</h2></div>
+                  <div class="portfolio-info"><h2 class="wow fadeInUp"></h2></div>
                 </div>
               </a>
             </div>
@@ -215,10 +237,10 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/8.jpg" class="portfolio-popup">
-                <img src="img/portfolio/8.jpg" alt="">
+              <a href="{{ asset('img/portfolio/8.jpg') }}" class="portfolio-popup">
+                <img src="{{ asset('img/portfolio/8.jpg') }}" alt="">
                 <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 8</h2></div>
+                  <div class="portfolio-info"><h2 class="wow fadeInUp"></h2></div>
                 </div>
               </a>
             </div>
@@ -232,7 +254,7 @@
     <!--==========================
       Testimonials Section
     ============================-->
-    <section id="testimonials" class="wow fadeInUp">
+   <!--  <section id="testimonials" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
           <h2>Testimonials</h2>
@@ -298,30 +320,17 @@
         </div>
 
       </div>
-    </section><!-- #testimonials -->
+    </section> --><!-- #testimonials -->
 
     <!--==========================
       Call To Action Section
     ============================-->
-    <section id="call-to-action" class="wow fadeInUp">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3 class="cta-title">Call To Action</h3>
-            <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- #call-to-action -->
+   <!-- #call-to-action -->
 
     <!--==========================
       Our Team Section
     ============================-->
-    <section id="team" class="wow fadeInUp">
+    <!-- <section id="team" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
           <h2>Our Team</h2>
@@ -331,8 +340,8 @@
             <div class="member">
               <div class="pic"><img src="img/team-1.jpg" alt=""></div>
               <div class="details">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
+                <h4>Murugasundaram</h4>
+                <span>Software Developer</span>
                 <div class="social">
                   <a href=""><i class="fa fa-twitter"></i></a>
                   <a href=""><i class="fa fa-facebook"></i></a>
@@ -347,8 +356,8 @@
             <div class="member">
               <div class="pic"><img src="img/team-2.jpg" alt=""></div>
               <div class="details">
-                <h4>Sarah Jhinson</h4>
-                <span>Product Manager</span>
+                <h4>LakshmanRaj</h4>
+                <span>Member Technical Staff at Zoho</span>
                 <div class="social">
                   <a href=""><i class="fa fa-twitter"></i></a>
                   <a href=""><i class="fa fa-facebook"></i></a>
@@ -359,41 +368,11 @@
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team-3.jpg" alt=""></div>
-              <div class="details">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team-4.jpg" alt=""></div>
-              <div class="details">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+     
         </div>
 
       </div>
-    </section><!-- #team -->
+    </section> --><!-- #team -->
 
     <!--==========================
       Contact Section
@@ -401,11 +380,11 @@
     <section id="contact" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
-          <h2>Contact Us</h2>
-          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+          <h2>Reach Us</h2>
+          <p>Share your thoughs, feedbacks and problem with us. Please fill it and send. We will get back to you</p>
         </div>
 
-        <div class="row contact-info">
+        <!-- <div class="row contact-info">
 
           <div class="col-md-4">
             <div class="contact-address">
@@ -431,14 +410,15 @@
             </div>
           </div>
 
-        </div>
+        </div> -->
       </div>
 
-      <div id="google-map" data-latitude="40.713732" data-longitude="-74.0092704"></div>
+      <!-- <div id="google-map" data-latitude="40.713732" data-longitude="-74.0092704"></div> -->
 
-      <div class="container">
-        <div class="form">
+      <div id="contact" class="container">
+        <div class="form" id="beforesend">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="msgsend">Please wait, your message is sending</div>
           <div id="errormessage"></div>
           <form action="" method="post" role="form" class="contactForm">
             <div class="form-row">
@@ -462,8 +442,9 @@
             <div class="text-center"><button type="submit">Send Message</button></div>
           </form>
         </div>
-
+        <!-- <div id="senddone">Thank you for contacting Us!</div> -->
       </div>
+
     </section><!-- #contact -->
 
   </main>

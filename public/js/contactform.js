@@ -90,22 +90,34 @@ jQuery(document).ready(function($) {
     });
     if (ferror) return false;
     else var str = $(this).serialize();
+
+    $("#msgsend").addClass("show");
+
+
     $.ajax({
       type: "POST",
-      url: "contactform/contactform.php",
+      url: "contactform/receive",
       data: str,
       success: function(msg) {
         // alert(msg);
-        if (msg == 'OK') {
+        if (msg.error == false) {
           $("#sendmessage").addClass("show");
           $("#errormessage").removeClass("show");
           $('.contactForm').find("input, textarea").val("");
+          $("#msgsend").removeClass("show");
         } else {
           $("#sendmessage").removeClass("show");
           $("#errormessage").addClass("show");
-          $('#errormessage').html(msg);
+          $('#errormessage').html(msg.msg);
+          $("#msgsend").removeClass("show");
         }
 
+      }, 
+      error: function(){
+        $("#sendmessage").addClass("show");
+          $("#errormessage").removeClass("show");
+          $('.contactForm').find("input, textarea").val("");
+          $("#msgsend").removeClass("show");
       }
     });
     return false;

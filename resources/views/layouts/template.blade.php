@@ -7,6 +7,8 @@
   <meta content="" name="keywords">
   <meta content="" name="description">
 
+  <meta name="_token" content="{{ app('Illuminate\Encryption\Encrypter')->encrypt(csrf_token()) }}"/>
+
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -28,12 +30,33 @@
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+  <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('lib/jquery/jquery-migrate.min.js') }}"></script>
+  <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
+  <script src="{{ asset('lib/superfish/hoverIntent.js') }}"></script>
+  <script src="{{ asset('lib/superfish/superfish.min.js') }}"></script>
+  <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
+  <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('lib/magnific-popup/magnific-popup.min.js') }}"></script>
+  <script src="{{ asset('lib/sticky/sticky.js') }}"></script>
+
   <!-- =======================================================
     Theme Name: Reveal
     Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+  <script>
+        $(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-XSRF-Token': $('meta[name="_token"]').attr('content')
+                }
+            });
+        });
+
+    </script>
 </head>
 
 <body id="body">
@@ -70,23 +93,44 @@
       </div>
 
       <nav id="nav-menu-container">
+        
         <ul class="nav-menu">
-          <li><a href="#about">Survey</a></li>
+          @if(isset($menu) && $menu == 'main')
+          <li><a href="{{ asset('/accet/survey') }}">Survey</a></li>
           <!-- <li class="menu-active"><a href="#body">Home</a></li> -->
-          <li><a href="#about">About Us</a></li>
+          <!-- <li><a href="#about">About Us</a></li> -->
           <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-         <!--  <li class="menu-has-children"><a href="">Drop Down</a>
+          <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+         <!--  <li><a href="#team">Team</a></li> -->
+         
+          <li><a href="#contact">Contact</a></li> 
+          @else
+           <li><a href="{{ asset('/') }}">Home</a></li> 
+          @endif
+          <!--  -->
+          @guest
+         @else
+          
+          <li class="menu-has-children"><a href="Javascript:void(0)"> {{ Auth::user()->name }}</a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
+              <li><a href="{{ asset('/accet/survey/result') }}">Survey result</a></li> 
+              <li><a href="{{ asset('/accet/survey/feedback') }}">Feedbacks</a></li> 
+              <li>
+                <a href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                  Logout
+              </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  {{ csrf_field() }}
+              </form></li> 
+              
             </ul>
-          </li> -->
-          <li><a href="#contact">Contact</a></li>
+          </li>
+           @endguest
         </ul>
+       
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
@@ -119,17 +163,6 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('lib/jquery/jquery-migrate.min.js') }}"></script>
-  <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
-  <script src="{{ asset('lib/superfish/hoverIntent.js') }}"></script>
-  <script src="{{ asset('lib/superfish/superfish.min.js') }}"></script>
-  <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
-  <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('lib/magnific-popup/magnific-popup.min.js') }}"></script>
-  <script src="{{ asset('lib/sticky/sticky.js') }}"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"></script>
   <!-- Contact Form JavaScript File -->
   <script src="{{ asset('js/contactform.js') }}"></script>
 
